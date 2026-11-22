@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
-# uart_top.sdc - timing constraints (100 MHz APB clock)
+# uart_top.sdc - timing constraints (50 MHz APB clock)
 #------------------------------------------------------------------------------
-set clk_period 10.0
+set clk_period 20.0
 create_clock -name pclk -period $clk_period [get_ports pclk]
 
 set_clock_uncertainty 0.25 [get_clocks pclk]
@@ -18,4 +18,3 @@ set_false_path -from [get_ports uart_rxd]
 
 set_driving_cell -lib_cell sky130_fd_sc_hd__inv_2 -pin Y $in_ports
 set_load 0.033 [all_outputs]
-set_max_fanout 10 [current_design]

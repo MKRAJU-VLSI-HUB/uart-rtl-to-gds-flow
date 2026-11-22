@@ -9,7 +9,7 @@
         "dir::../rtl/uart_top.v"
     ],
     "CLOCK_PORT": "pclk",
-    "CLOCK_PERIOD": 10,
+    "CLOCK_PERIOD": 20,
     "PNR_SDC_FILE": "dir::uart_top.sdc",
     "SIGNOFF_SDC_FILE": "dir::uart_top.sdc",
 
