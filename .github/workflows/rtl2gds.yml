@@ -32,7 +32,8 @@ jobs:
 
       - name: Run RTL-to-GDS flow
         run: |
-          librelane --dockerized --pdk-root "$HOME/pdk" --run-tag ci --overwrite openlane/config.json
+          # dockerized mode expects a TTY; provide a pseudo-terminal in CI
+          script -q -e -c "librelane --dockerized --pdk-root $HOME/pdk --run-tag ci --overwrite openlane/config.json" /dev/null
 
       - name: Collect results
         if: always()
