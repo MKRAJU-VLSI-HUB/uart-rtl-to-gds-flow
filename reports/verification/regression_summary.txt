@@ -1,0 +1,15 @@
+TEST                     SEED   RESULT UVM_ERR  SVA_FAIL
+uart_smoke_test          1      PASS   0        0
+uart_reg_test            1      PASS   0        0
+uart_tx_test             1      PASS   0        0
+uart_rx_test             1      PASS   0        0
+uart_duplex_test         1      PASS   0        0
+uart_parity_err_test     1      PASS   0        0
+uart_frame_err_test      1      PASS   0        0
+uart_overrun_test        1      PASS   0        0
+uart_overflow_test       1      PASS   0        0
+uart_loopback_test       1      PASS   0        0
+uart_irq_test            1      PASS   0        0
+uart_random_test         1      PASS   0        0
+PASSED 12 / 12
+TOGGLE_COV: 114 / 114 bits toggled 0->1 and 1->0 (100.00%, cumulative)

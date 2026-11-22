@@ -1,0 +1,65 @@
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6641500ecb285c291a54a662cb1e76cf, clang++ 21.1.2 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/runner/work/uart-rtl-to-gds-flow/uart-rtl-to-gds-flow/openlane/runs/ci/tmp/52c6b7b4bcd646c083af4b687d2b9143.lib ",
+   "modules": {
+      "\\uart_top": {
+         "num_wires":         1750,
+         "num_wire_bits":     2199,
+         "num_pub_wires":     97,
+         "num_pub_wire_bits": 498,
+         "num_ports":         13,
+         "num_port_bits":     79,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         2109,
+         "num_submodules":       0,
+         "area":              10431.254400,
+         "sequential_area":    10431.254400,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 613,
+            "$_AND_": 34,
+            "$_MUX_": 407,
+            "$_NAND_": 74,
+            "$_NOR_": 19,
+            "$_NOT_": 24,
+            "$_ORNOT_": 104,
+            "$_OR_": 356,
+            "$_XNOR_": 33,
+            "$_XOR_": 48,
+            "sky130_fd_sc_hd__dfrtp_2": 385,
+            "sky130_fd_sc_hd__dfstp_2": 12
+         }
+      }
+   },
+      "design": {
+         "num_wires":         1750,
+         "num_wire_bits":     2199,
+         "num_pub_wires":     97,
+         "num_pub_wire_bits": 498,
+         "num_ports":         13,
+         "num_port_bits":     79,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         2109,
+         "num_submodules":       0,
+         "area":              10431.254400,
+         "sequential_area":    10431.254400,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 613,
+            "$_AND_": 34,
+            "$_MUX_": 407,
+            "$_NAND_": 74,
+            "$_NOR_": 19,
+            "$_NOT_": 24,
+            "$_ORNOT_": 104,
+            "$_OR_": 356,
+            "$_XNOR_": 33,
+            "$_XOR_": 48,
+            "sky130_fd_sc_hd__dfrtp_2": 385,
+            "sky130_fd_sc_hd__dfstp_2": 12
+         }
+      }
+}
+

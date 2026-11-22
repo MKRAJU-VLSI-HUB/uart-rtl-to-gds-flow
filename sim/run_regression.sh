@@ -22,7 +22,7 @@ SEED=${SEED:-1}
 XV=xvlog; XE=xelab; XS=xsim; XC=xcrg
 case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) XV=xvlog.bat; XE=xelab.bat; XS=xsim.bat; XC=xcrg.bat;; esac
 
-rm -rf xsim.dir xsim.covdb xsim.codeCov cov_report logs *.jou *.pb xcrg.log tr_db.log
+rm -rf xsim.dir xsim.covdb xsim.codeCov cov_report logs *.jou *.pb xcrg.log tr_db.log toggle_db.txt
 mkdir -p logs
 
 echo "== compile"
@@ -54,6 +54,7 @@ for t in "${TESTS[@]}"; do
     printf "%-24s %-6s %-6s %-8s %s\n" $t $SEED $res $errs $sva | tee -a $SUMMARY
 done
 echo "PASSED $pass / $((pass+fail))" | tee -a $SUMMARY
+grep -h "TOGGLE_COV" logs/${TESTS[-1]}.log | tee -a $SUMMARY
 
 echo "== coverage reports"
 fargs=""; for t in "${TESTS[@]}"; do fargs="$fargs -cov_db_name $t"; done

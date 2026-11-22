@@ -1,0 +1,5 @@
+
+20. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$02372f1b8bdcc4cbcc1c99a560674aa9e888ec48\uart_fifo.$mem2reg_rd$\mem$/home/runner/work/uart-rtl-to-gds-flow/uart-rtl-to-gds-flow/rtl/uart_fifo.v:32$61_DATA' from process `$paramod$02372f1b8bdcc4cbcc1c99a560674aa9e888ec48\uart_fifo.$proc$/home/runner/work/uart-rtl-to-gds-flow/uart-rtl-to-gds-flow/rtl/uart_fifo.v:32$89'.
+No latch inferred for signal `\uart_rx.\aligned' from process `\uart_rx.$proc$/home/runner/work/uart-rtl-to-gds-flow/uart-rtl-to-gds-flow/rtl/uart_rx.v:62$8'.
+No latch inferred for signal `\uart_regs.\prdata' from process `\uart_regs.$proc$/home/runner/work/uart-rtl-to-gds-flow/uart-rtl-to-gds-flow/rtl/uart_regs.v:115$125'.

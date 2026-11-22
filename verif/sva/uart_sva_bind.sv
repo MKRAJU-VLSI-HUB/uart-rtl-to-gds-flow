@@ -39,4 +39,19 @@ bind uart_top uart_sva u_sva (
     .irq      (irq)
 );
 
+// toggle coverage of ports and key registers (114 bits)
+bind uart_top uart_toggle_cov #(.W(114)) u_tgl (
+    .clk   (pclk),
+    .rst_n (presetn),
+    .sig   ({ paddr[4:2], psel, penable, pwrite,          //   6
+              pwdata,                                     //  32
+              prdata[20:0], pslverr,                      //  22
+              uart_rxd, uart_txd, irq,                    //   3
+              ctrl, baud_div,                             //  24
+              tx_count, rx_count,                         //  10
+              tick16, tx_busy, rx_busy,                   //   3
+              tx_full, tx_empty, rx_full, rx_empty,       //   4
+              u_regs.sticky, u_regs.ier })                //  10
+);
+
 endmodule

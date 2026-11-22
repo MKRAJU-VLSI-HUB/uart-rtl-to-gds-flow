@@ -1,0 +1,84 @@
+#-----------------------------------------------------------
+# xsim v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sun Nov 22 23:56:08 2026
+# Process ID         : 18128
+# Current directory  : C:/Users/RAJU/OneDrive/Desktop/uart_rtl_to_gds/sim
+# Command line       : xsim.exe -log logs/uart_overrun_test.log -mode tcl -source {xsim.dir/uart_snap/xsim_script.tcl}
+# Log file           : C:/Users/RAJU/OneDrive/Desktop/uart_rtl_to_gds/sim/logs/uart_overrun_test.log
+# Journal file       : C:/Users/RAJU/OneDrive/Desktop/uart_rtl_to_gds/sim\xsim.jou
+# Running On         : LAPTOP-SBM6UN6L
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : 12th Gen Intel(R) Core(TM) i5-12450H
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 12
+# Host memory        : 16831 MB
+# Swap memory        : 7878 MB
+# Total Virtual      : 24710 MB
+# Available Virtual  : 7248 MB
+#-----------------------------------------------------------
+source xsim.dir/uart_snap/xsim_script.tcl
+# xsim {uart_snap} -testplusarg UVM_TESTNAME=uart_overrun_test -testplusarg UVM_VERBOSITY=UVM_LOW -cov_db_dir . -cov_db_name uart_overrun_test -autoloadwcfg -runall -sv_seed 1
+Time resolution is 1 ps
+run -all
+UVM_INFO C:XilinxVivadÿ‚4.2data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO C:XilinxVivadÿ‚4.2data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18648) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO @ 0: reporter [RNTST] Running test uart_overrun_test...
+UVM_INFO C:XilinxVivadÿ‚4.2data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+UVM_INFO C:XilinxVivadÿ‚4.2data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 207035000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO ../verif/uvm/uart_coverage.svh(168) @ 207035000: uvm_test_top.env.cov [COVERAGE] 
+  cg_frame  =  32.08%
+  cg_data   =  45.12%
+  cg_rx_err =  16.67%
+  cg_apb    =  62.50%
+  cg_baud   =  16.67%
+  cg_isr    =  58.93%
+  cg_status =  58.33%
+  cg_mode   =  40.62%
+UVM_INFO ../verif/uvm/uart_scoreboard.svh(168) @ 207035000: uvm_test_top.env.sb [SB_SUMMARY] TX frames OK=0 | RX frames OK=16 | reg checks OK=2 | parity_err=0 frame_err=0 overrun=4 overflow=0 | mismatches=0
+UVM_INFO ../verif/uvm/uart_tests.svh(49) @ 207035000: uvm_test_top [RESULT] uart_overrun_test : PASSED
+UVM_INFO C:XilinxVivadÿ‚4.2data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 207035000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    8
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[COVERAGE]     1
+[NO_DPI_TSTNAME]     1
+[RESULT]     1
+[RNTST]     1
+[SB_SUMMARY]     1
+[TEST_DONE]     1
+[UVM/COMP/NAMECHECK]     1
+[UVM/RELNOTES]     1
+
+TOGGLE_COV: 113 / 114 bits toggled 0->1 and 1->0 (99.12%, cumulative) | not toggled bit index: 9
+$finish called at time : 207035 ns : File "C:\Xilinx\Vivado\2024.2\data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+exit
+INFO: [Common 17-206] Exiting xsim at Sun Nov 22 23:56:10 2026...

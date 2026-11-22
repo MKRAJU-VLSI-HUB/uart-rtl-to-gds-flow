@@ -8,6 +8,7 @@ sim/*.jou
 sim/*.pb
 sim/*.log
 sim/*.wdb
+sim/toggle_db.txt
 *.backup.*
 
 # physical design run directories
