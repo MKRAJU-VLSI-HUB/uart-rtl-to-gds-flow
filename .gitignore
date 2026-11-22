@@ -1,0 +1,27 @@
+# simulator work / build output
+sim/xsim.dir/
+sim/logs/
+sim/fcov/
+sim/ccov/
+sim/cov_report/
+sim/*.jou
+sim/*.pb
+sim/*.log
+sim/*.wdb
+*.backup.*
+
+# physical design run directories
+openlane/runs/
+
+# Vivado / editor files
+.Xil/
+vivado_project/
+build/
+*.swp
+.vscode/
+
+# document build intermediates
+docs/*.aux
+docs/*.log
+docs/*.out
+docs/*.toc

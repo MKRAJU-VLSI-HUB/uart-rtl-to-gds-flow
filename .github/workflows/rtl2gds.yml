@@ -1,0 +1,82 @@
+name: RTL-to-GDS (SKY130)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "rtl/**"
+      - "openlane/**"
+      - ".github/workflows/rtl2gds.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rtl2gds:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install LibreLane (OpenLane 2) + KLayout
+        run: |
+          pip install --upgrade pip
+          pip install librelane
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq klayout
+
+      - name: Run RTL-to-GDS flow
+        run: |
+          librelane --dockerized --pdk-root "$HOME/pdk" --run-tag ci --overwrite openlane/config.json
+
+      - name: Collect results
+        if: always()
+        run: |
+          RUN=openlane/runs/ci
+          OUT=flow_out
+          mkdir -p $OUT/gds $OUT/netlist $OUT/reports/steps $OUT/images
+          cp $RUN/final/gds/*.gds              $OUT/gds/      || true
+          cp $RUN/final/lef/*.lef              $OUT/gds/      || true
+          cp $RUN/final/def/*.def              $OUT/gds/      || true
+          cp $RUN/final/nl/*.v                 $OUT/netlist/  || true
+          cp $RUN/final/pnl/*.v                $OUT/netlist/  || true
+          cp -r $RUN/final/spef                $OUT/netlist/  || true
+          cp $RUN/final/metrics.*              $OUT/reports/  || true
+          cp $RUN/resolved.json                $OUT/reports/  || true
+          cp $RUN/*.log                        $OUT/reports/  || true
+          for d in $RUN/*/; do
+            step=$(basename "$d")
+            if [ -d "$d/reports" ]; then
+              mkdir -p "$OUT/reports/steps/$step"
+              find "$d/reports" -type f -size -3M -exec cp {} "$OUT/reports/steps/$step/" \;
+            fi
+          done
+          GDS=$(ls $OUT/gds/*.gds | head -1)
+          LYP=$(find "$HOME/pdk" -name "sky130A.lyp" | head -1)
+          if [ -n "$GDS" ]; then
+            klayout -b -r openlane/render_layout.py -rd gds="$GDS" -rd lyp="$LYP" \
+                    -rd out="$OUT/images/uart_top" || true
+          fi
+          ls -R $OUT | head -200
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: uart_top_rtl2gds
+          path: flow_out
+
+      - name: Publish results to flow-results branch
+        if: success()
+        run: |
+          cd flow_out
+          git init -q -b flow-results
+          git config user.name  "MKRAJU-VLSI-HUB"
+          git config user.email "mnithen79@gmail.com"
+          git add -A
+          git commit -q -m "RTL-to-GDS results (${GITHUB_SHA::7})"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" flow-results
