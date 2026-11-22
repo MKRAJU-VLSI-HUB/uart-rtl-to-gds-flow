@@ -1,0 +1,26 @@
+UART RTL to GDS Flow: from Verilog to silicon layout on SKY130
+
+I've finished a complete ASIC design flow for an APB3 UART controller, going from specification and RTL through UVM verification to a DRC- and LVS-clean GDSII layout on the SkyWater 130 nm open PDK.
+
+🔹 RTL design (Verilog)
+• AMBA APB3 slave, 16-deep TX/RX FIFOs, programmable baud rate with 16x oversampling
+• 5–8 data bits, none/even/odd parity, 1 or 2 stop bits, loopback mode
+• Parity, framing, overrun and overflow detection with a maskable interrupt
+
+🔹 UVM verification (Vivado XSIM)
+• APB and UART agents, a scoreboard with a reference model, and constrained-random virtual sequences
+• 40+ SystemVerilog assertions (APB protocol, FIFO integrity, bit timing, interrupt logic)
+• 12/12 tests passing with 0 mismatches
+• Functional coverage 98.7%, statement/branch coverage 96–100%, toggle coverage 100%
+
+🔹 RTL-to-GDSII (OpenLane 2 on SKY130)
+• Synthesis → floorplan → placement → CTS → routing → multi-corner STA → DRC/LVS
+• Timing met at 50 MHz in all 9 PVT/RC corners (setup WNS +2.22 ns, hold WNS +0.11 ns)
+• 0.058 mm² die, 2.83 mW, 0 DRC violations, LVS clean, 0 antenna violations
+
+What I learned: closing coverage meant fixing my own testbench as well as the RTL, and the slow process corner is what really sets the clock frequency.
+
+📄 Full project report attached
+💻 Code, reports and GDS: https://github.com/MKRAJU-VLSI-HUB/uart-rtl-to-gds-flow
+
+#VLSI #ASIC #RTLtoGDS #UVM #SystemVerilog #Verilog #DesignVerification #PhysicalDesign #OpenLane #SKY130 #OpenROAD #SemiconductorDesign #UART
