@@ -7,7 +7,10 @@
 *.v    linguist-language=Verilog
 *.sv   linguist-language=SystemVerilog
 *.svh  linguist-language=SystemVerilog
-reports/**  linguist-generated
-netlist/**  linguist-generated
-gds/**      linguist-generated
-docs/**     linguist-documentation
+reports/** linguist-generated=true linguist-vendored=true
+netlist/** linguist-generated=true linguist-vendored=true
+gds/** linguist-generated=true linguist-vendored=true
+docs/** linguist-documentation=true linguist-vendored=true
+*.html linguist-vendored=true
+*.css linguist-vendored=true
+*.js linguist-vendored=true
