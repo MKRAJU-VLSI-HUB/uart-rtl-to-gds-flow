@@ -2,3 +2,12 @@
 *.gds binary
 *.pdf binary
 *.png binary
+
+# language statistics: count only the hand-written RTL and verification code
+*.v    linguist-language=Verilog
+*.sv   linguist-language=SystemVerilog
+*.svh  linguist-language=SystemVerilog
+reports/**  linguist-generated
+netlist/**  linguist-generated
+gds/**      linguist-generated
+docs/**     linguist-documentation
