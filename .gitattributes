@@ -14,3 +14,5 @@ docs/** linguist-documentation=true linguist-vendored=true
 *.html linguist-vendored=true
 *.css linguist-vendored=true
 *.js linguist-vendored=true
+*.f    linguist-detectable=false
+*.zip  binary
