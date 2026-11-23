@@ -14,7 +14,7 @@ An APB3 UART controller taken through a full ASIC design flow: RTL design, UVM v
 |------|--------|
 | UVM regression | **12 / 12 tests pass**, 0 scoreboard mismatches, 0 assertion failures |
 | Functional coverage (merged) | **98.72 %** (8 covergroups) |
-| Code coverage (DUT) | statement **98–100 %**, branch **96–100 %**, condition **93–100 %** |
+| Code coverage (DUT) | statement **98–100 %**, branch **96–100 %**, condition **100 %** |
 | Toggle coverage (ports + key registers) | **114 / 114 bits (100 %)** |
 | Assertions | 40+ SVA properties (APB protocol, FIFO, baud, TX/RX, IRQ, sticky flags) + 10 cover properties |
 | Technology | SKY130A, `sky130_fd_sc_hd` |
@@ -161,14 +161,15 @@ TOGGLE_COV: 114 / 114 bits toggled 0->1 and 1->0 (100.00%, cumulative)
 | Module | Statement | Branch | Condition |
 |--------|---------:|-------:|----------:|
 | uart_regs | 100 % | 100 % | 100 % |
-| uart_fifo (x2) | 100 % | 100 % | 92.86 % |
+| uart_fifo (x2) | 100 % | 100 % | 100 % |
+| uart_baud_gen | 100 % | 100 % | 100 % |
 | uart_tx | 98.36 % | 96.00 % | 100 % |
 | uart_rx | 98.59 % | 96.30 % | 100 % |
 | uart_top | n/a | 100 % | 100 % |
 
 The remaining statement/branch holes in `uart_tx` and `uart_rx` are the unreachable `default:` arms of the FSM case statements.
 
-Full HTML reports: `reports/verification/functional_coverage_html/dashboard.html` and `reports/verification/code_coverage_html/dashboard.html`.
+Coverage summaries: `reports/verification/functional_coverage_report.txt` and `reports/verification/code_coverage_report.txt`. The full XCRG HTML reports are packed in `reports/verification/coverage_reports_html.zip`.
 
 ### Running the regression (Vivado 2024.2 xsim)
 

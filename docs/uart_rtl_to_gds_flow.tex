@@ -37,7 +37,7 @@ This project takes a UART controller with an AMBA APB3 interface through a compl
 \midrule
 UVM regression & 12/12 tests pass, 0 mismatches, 0 assertion failures \\
 Functional coverage (merged) & 98.72\,\% \\
-Code coverage (DUT) & statement 98--100\,\%, branch 96--100\,\%, condition 93--100\,\% \\
+Code coverage (DUT) & statement 98--100\,\%, branch 96--100\,\%, condition 100\,\% \\
 Toggle coverage & 114/114 port and register bits (100\,\%) \\
 Signoff frequency & 50\,MHz, met in all 9 PVT/RC corners \\
 Setup / hold WNS & +2.22\,ns / +0.11\,ns \\
@@ -120,7 +120,7 @@ uart\_random\_test & constrained-random mix of all scenarios & PASS\\
 \textbf{Covergroup} & \textbf{Score} & \textbf{Module} & \textbf{Stmt} & \textbf{Branch} & \textbf{Cond}\\
 \midrule
 cg\_frame (format cross) & 96.67\,\% & uart\_regs & 100\,\% & 100\,\% & 100\,\% \\
-cg\_data & 94.64\,\% & uart\_fifo & 100\,\% & 100\,\% & 92.86\,\% \\
+cg\_data & 94.64\,\% & uart\_fifo & 100\,\% & 100\,\% & 100\,\% \\
 cg\_rx\_err & 100\,\% & uart\_tx & 98.36\,\% & 96.00\,\% & 100\,\% \\
 cg\_apb & 98.44\,\% & uart\_rx & 98.59\,\% & 96.30\,\% & 100\,\% \\
 cg\_baud, cg\_isr & 100\,\% & uart\_top & -- & 100\,\% & 100\,\% \\
